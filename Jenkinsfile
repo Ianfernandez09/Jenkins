@@ -7,5 +7,12 @@ pipeline {
       }
     }
 
+    stage('Instala Docker') {
+      steps {
+        ansiblePlaybook 'dependencies.yml'
+        sh 'ansible all -i hosts -m ping -f 5'
+      }
+    }
+
   }
 }
