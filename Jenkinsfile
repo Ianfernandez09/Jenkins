@@ -14,9 +14,9 @@ pipeline {
       }
     }
 
-    stage('Envío Docker-compose') {
+    stage('Envio Docker-compose') {
       steps {
-        sh '''ansible all -i hosts -m copy -a src=/home/usuario/prueba/docker-compose.yml dest=/tmp/docker-compose.yml
+        sh '''ansible all -i hosts -m copy -a src=/home/usuario/prueba/docker-compose.yml dst=/tmp/docker-compose.yml
 '''
       }
     }
