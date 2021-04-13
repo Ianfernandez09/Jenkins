@@ -14,5 +14,18 @@ pipeline {
       }
     }
 
+    stage('Envío Docker-compose') {
+      steps {
+        sh '''ansible all -i hosts -m copy -a src=/home/usuario/prueba/docker-compose.yml dest=/tmp/docker-compose.yml
+'''
+      }
+    }
+
+    stage('Iniciar Odoo') {
+      steps {
+        ansiblePlaybook 'iniciar_docker.yml'
+      }
+    }
+
   }
 }
